@@ -1,12 +1,10 @@
 import pyautogui as pa
-
 import cv2
 import time
 import numpy as np
 import HandTrackingModule as htm
 import math
-from ctypes import cast, POINTER
-from comtypes import CLSCTX_ALL
+
 
 
 ################################
@@ -24,9 +22,6 @@ scroll = 0
 length_old = 0
 length_new = 0
 
-# volume.GetMute()
-# volume.GetMasterVolumeLevel()
-
 while True:
     length_old = length_new
     success, img = cap.read()
@@ -34,7 +29,6 @@ while True:
     lmList = detector.findPosition(img, draw=False)
     if len(lmList) != 0:
         # print(lmList[4], lmList[8])
-
         x1, y1 = lmList[4][1], lmList[4][2]
         x2, y2 = lmList[8][1], lmList[8][2]
         z = lmList[1][3]
